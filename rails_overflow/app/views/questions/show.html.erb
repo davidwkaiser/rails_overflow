@@ -7,5 +7,14 @@
   <strong>Text:</strong>
   <%= @question.text %>
 </p>
+
+<h2>Answers</h2>
+<%= render @question.answers %>
+
+
+<h2>Add an answer:</h2>
+<%= render 'answers/form' %>
+
+
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
