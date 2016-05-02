@@ -10,11 +10,20 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
+  get   'login' =>  'sessions#new'
+  post  'login' =>  'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+
+
   resources :users
 
   resources :questions do
     resources :answers
   end
+
+
+
 
   root 'welcome#index'
 

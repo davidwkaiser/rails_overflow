@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.password = params[:password]
+    p user_params[:password]
+    @user.password = user_params[:hashed_password]
     @user.save!
     redirect_to questions_path
   end
