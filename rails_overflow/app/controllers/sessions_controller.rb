@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(password)
       session[:user_id] = @user.id
+      p session[:user_id]
       redirect_to questions_path
     else
       render 'new'
@@ -23,9 +24,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-    redirect_to root_url
+    p session[:user_id]
+    session.delete(:user_id)
+    @current_user = nil
+    redirect_to questions_path
   end
-
-
 end
